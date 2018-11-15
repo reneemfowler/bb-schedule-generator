@@ -2,11 +2,19 @@ from django.contrib import admin
 from .models import Schedule, ScheduleItem
 
 
+class ScheduleItemInline(admin.TabularInline):
+    model = ScheduleItem
+
+
 class ScheduleAdmin(admin.ModelAdmin):
     model = Schedule
+    inlines = [
+        ScheduleItemInline,
+    ]
     prepopulated_fields = {'slug': ('title',)}
     ordering = ('title',)
     search_fields = ('title',)
+    
 
 class ScheduleItemAdmin(admin.ModelAdmin):
     model = ScheduleItem
