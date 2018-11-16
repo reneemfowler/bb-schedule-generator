@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                Bubbly Bambino
+            {% endblock title %}
+        </title>
+        <link href="{% static 'main.css' %}"  rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to Bubbly Bambino</h1>
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}{% endblock content %}
+        {% block footer %}{% endblock footer %}
+    </body>
+</html>
